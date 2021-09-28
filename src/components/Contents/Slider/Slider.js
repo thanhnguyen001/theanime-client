@@ -190,10 +190,10 @@ function Slider() {
                     else item.classList.remove('active');
                 })
             });
-            isPause.current = setTimeout(() => {
-                handleChangeSlide(1)
-            }, 3000);
         }
+        isPause.current = setTimeout(() => {
+            handleChangeSlide(1)
+        }, 3000);
     }
 
     const showDotChangeSlide = (carousels) => {
