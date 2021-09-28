@@ -126,7 +126,7 @@ function Slider() {
 
     // Auto change slide
     const isPause = useRef(null);
-    let count = 1;
+    const count = useRef(1);
 
     function resetAutoChangeSlide() {
         if (isPause.current) {
@@ -155,36 +155,36 @@ function Slider() {
         const dotsElements = document.querySelectorAll('.carousels-dots--item');
 
         if (carouselsElement && slideElements) {
-            if (jump) count = jump;
-            else count += num;
+            if (jump) count.current = jump;
+            else count.current += num;
 
-            if (count === slideElements.length + 1) return;
-            if (count >= slideElements.length) {
-                count--;
+            if (count.current === slideElements.length + 1) return;
+            if (count.current >= slideElements.length) {
+                count.current--;
                 return;
             }
-            if (count < 0) {
-                count++;
+            if (count.current < 0) {
+                count.current++;
                 return;
             }
            
-            carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count}px)`;
+            carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count.current}px)`;
             carouselsElement.style.transition = 'transform 0.3s linear';
 
             carouselsElement.addEventListener('transitionend', () => {
-                if (slideElements[count].id === 'first-slide') {
-                    count = 1;
+                if (slideElements[count.current].id === 'first-slide') {
+                    count.current = 1;
                     carouselsElement.style.transition = 'none';
-                    carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count}px)`;
+                    carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count.current}px)`;
                 }
 
-                if (slideElements[count].id === 'last-slide') {
-                    count = slideElements.length - 2;
+                if (slideElements[count.current].id === 'last-slide') {
+                    count.current = slideElements.length - 2;
                     carouselsElement.style.transition = 'none';
-                    carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count}px)`;
+                    carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count.current}px)`;
                 }
                 dotsElements.forEach((item, index) => {
-                    if (index + 1 === count) {
+                    if (index + 1 === count.current) {
                         item.classList.add('active');
                     }
                     else item.classList.remove('active');
