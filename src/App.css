@@ -1,0 +1,16 @@
+.App {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.content {
+    z-index: 1;
+    padding-top: var(--height-header);
+    transition: background-color 0.3s linear;
+    /* height: 10000px; */
+}
+.content-wrap {
+    margin: 0 auto;
+}

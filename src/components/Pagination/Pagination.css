@@ -1,0 +1,30 @@
+.pagination {
+    height: 50px;
+    margin-top: 16px;
+}
+
+.pagination-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+.page-number {
+    padding: 4px 16px;
+    background-color: var(--page-num-color);
+    color: var(--black-color);
+    cursor: pointer;
+}
+.page-number.active {
+    cursor: text;
+    background-color: rgb(29, 86, 243);
+}
+.page-number:hover {
+    background-color: rgb(29, 86, 243);
+}
+.first-page {
+    margin-right: 4px;
+}
+.last-page {
+    margin-left: 4px;
+}

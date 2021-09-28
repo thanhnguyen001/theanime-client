@@ -1,0 +1,471 @@
+.header {
+    width: 100%;
+    /* width: calc(100% - 20px); */
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 1px 3px rgb(71, 70, 70);
+    transition: background-color 0.3s linear;
+    z-index: 10000;
+}
+
+.header-wrap {
+    height: var(--height-header);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    margin-right: 24px;
+}
+
+.header-logo--img {
+    border-radius: 60px;
+    overflow: hidden;
+    height: var(--height-logo);
+}
+.header-logo--img img {
+    height: var(--height-logo);
+    width: var(--width-logo);
+}
+
+/* Header sidebar -------------------------------------------------------------------------------- */
+.sidebar {
+    margin-top: 80px;
+}
+.sidebar-menu--item {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 8px 4px;
+}
+.sidebar-item--text {
+    cursor: pointer;
+}
+.sidebar-menu--item i {
+    margin-top: 4px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.header-sidebar {
+    font-size: 2.8rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -300px;
+    width: 300px;
+    transition: left 0.3s linear;
+    box-shadow: -1px 1px 3px #ccc, 1px -1px 3px #ccc, 1px 1px 3px #ccc, -1px -1px 3px #ccc;
+    z-index: 3;
+}
+.header-sidebar.active {
+    left: 0;
+}
+
+.header-sidebar--wrap {
+    height: 100%;
+    padding: 8px;
+}
+.sidebar-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar-heading i {
+    color: red;
+    cursor: pointer;
+}
+
+.sidebar-heading--logo {
+    height: 50px;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.sidebar-heading--logo img {
+    height: 50px;
+    width: 150px;
+}
+.sidebar-menu .sidebar-genres {
+    flex-wrap: wrap;
+    padding: 0 16px;
+    display: none;
+}
+.sidebar-menu .sidebar-genres.active {
+    display: flex;
+}
+
+.sidebar-menu .sidebar-genres li {
+    width: 50%;
+}
+/* Header navbar -------------------------------------------------------------------------------- */
+
+.header-navbar {
+    width: 60%;
+}
+
+.navbar--wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-nav--list {
+    display: flex;
+    align-items: center;
+    /* color: var(--white-color); */
+}
+
+.navbar-nav--list p {
+    opacity: 0.8;
+}
+
+.navbar-nav--item:nth-child(1),
+.navbar-nav--item:nth-child(3) {
+    cursor: pointer;
+}
+
+.navbar-nav--item:nth-child(2) {
+    position: relative;
+}
+
+.navbar-nav--item:nth-child(2):hover .navbar-genres {
+    display: block;
+    animation: appearance 0.2s linear;
+}
+
+.navbar-genres {
+    display: none;
+    position: absolute;
+    top: 80%;
+    transform-origin: top left;
+    transition: appearance 0.2s linear;
+}
+
+@keyframes appearance {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.navbar-genres--wrap {
+    /* background-color: var(--bg-header-dark); */
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    padding: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    /* box-shadow: 1px 1px 3px #ccc; */
+}
+
+.genres-item {
+    width: 25%;
+    padding: 4px 0;
+}
+
+.genres-item:hover a {
+    color: var(--text-color-hover) !important;
+    opacity: 1;
+}
+
+.genres-item-link {
+    /* color: var(--white-color); */
+    opacity: 0.8;
+    font-size: 1.6rem;
+}
+
+.navbar-nav--item {
+    padding: 4px 8px;
+    font-size: 1.8rem;
+}
+
+.navbar-nav--item:hover p {
+    color: var(--text-color-hover);
+}
+/* Header Search Form -------------------------------------------- */
+.navbar-search.active {
+    left: 10px !important;
+    transition: left 0.3s linear 0s !important;
+}
+.navbar-search--form {
+    position: relative;
+    height: var(--height-header);
+}
+
+.navbar-search--wrap input {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 85%;
+    height: 30px;
+    padding-left: 12px;
+    padding-right: 32px;
+    border-radius: 20px;
+    border: 1px solid rgb(53, 52, 52);
+    font-size: 1.4rem;
+    z-index: 10;
+}
+.navbar-search--wrap input:focus {
+    outline: none;
+    border-color: red;
+}
+
+.navbar-search--form .search-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-12px, -42%);
+    cursor: pointer;
+    color: var(--black-color);
+    font-size: 1.6rem;
+    z-index: 10;
+}
+.navbar-search--anime {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 114.5%;
+    height: 400px;
+    /* background-color: rgba(255 255 255 / 70%); */
+    z-index: 5;
+    box-shadow: -1px 1px 3px #ccc, 1px -1px 3px #ccc, 1px 1px 3px #ccc, -1px -1px 3px #ccc;
+    transition: all 0.2s linear;
+    overflow: hidden;
+    padding: 56px 0 0 8px;
+    display: none;
+}
+.navbar-search--wrap input:focus ~ .navbar-search--anime {
+    display: block;
+}
+.navbar-search--anime:hover {
+    display: block;
+}
+.navbar-anime--wrap {
+    height: 100%;
+    overflow: auto;
+}
+.navbar-list-anime {
+    overflow-y: auto;
+}
+.not-found {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 8px;
+}
+.navbar-anime-item {
+    margin: 4px 0;
+}
+.navbar-anime-item img {
+    height: 56px;
+    width: 100px;
+}
+.navbar-anime-item--name {
+    white-space: pre-wrap;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    max-width: 190px;
+}
+.navbar-anime-item a {
+    display: flex;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.navbar-anime-item--precis {
+    margin-left: 8px;
+}
+
+.navbar-anime-item--time {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    color: white;
+    padding: 1px 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Header User------------------------------ */
+.header-user {
+    flex: 1;
+    margin-left: 8px;
+}
+.header-user--wrap {
+    font-size: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.change-mode {
+    margin-right: 12px;
+}
+
+.mode-wrap {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: var(--bg-header-light);
+    border-radius: 50%;
+    opacity: 0.9;
+    box-shadow: -1px 1px 3px #ccc, 1px -1px 3px #ccc, 1px 1px 3px #ccc, -1px -1px 3px #ccc;
+}
+.mode-wrap:hover {
+    opacity: 1;
+    transition: all 0.2s linear;
+}
+
+.mode-wrap i:nth-child(1) {
+    color: orangered;
+    cursor: pointer;
+    transform: translateY(-2.5px);
+}
+.mode-wrap i:nth-child(2) {
+    color: black;
+    cursor: pointer;
+    transform: translateY(-2.5px);
+}
+
+.header-user--avatar-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: -1px 1px 6px white, 1px -1px 6px white, 1px 1px 6px white, -1px -1px 6px white;
+    cursor: pointer;
+}
+
+.header-user--avatar-wrap img {
+    width: 40px;
+    height: 40px;
+}
+
+.header-form {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    right: -300px;
+    transition: right 0.2s linear;
+    box-shadow: -1px 1px 4px #ccc, 1px -1px 4px #000, 1px 1px 4px #000, -1px -1px 4px #000;
+    z-index: 1000;
+    /* display: none; */
+}
+.header-form.active {
+    right: 2px;
+    /* display: block; */
+}
+
+.sign-form--header {
+    padding: 10px;
+    height: 92px;
+    /* background-image: url(); */
+    background-color: var(--form-color);
+    font-size: 1.6rem;
+    position: relative;
+}
+.sign-form--header > div:nth-child(3) {
+    width: 80%;
+}
+.update-avatar {
+    position: absolute;
+    top: 6px;
+    right: 16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: red;
+    overflow: hidden;
+    cursor: pointer;
+}
+.update-avatar i {
+    position: absolute;
+    top: -40px;
+    background-color: rgba(204, 204, 204, 0.3);
+    padding: 8px 22px;
+    transition: top 0.3s linear;
+}
+.update-avatar img {
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+}
+.update-avatar:hover i {
+    top: 0;
+}
+.update-avatar-input {
+    position: absolute;
+    z-index: 2;
+    height: 4.4rem;
+    padding-left: 8px;
+    top: 50%;
+    left: 8px;
+    width: 280px;
+    display: none;
+}
+.update-avatar-bg {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    display: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.update-success {
+    position: absolute;
+    top: 64%;
+    right: 8%;
+    border: 2px solid green;
+    background-color: yellow;
+    border-radius: 6px;
+    padding: 4px 6px;
+    color: black;
+    font-size: 1.2rem;
+    transition: all 0.3s linear;
+    animation: fadeIn 0.5s linear;
+    display: none;
+}
+.update-success::after {
+    position: absolute;
+    content: "";
+    border-bottom: 12px solid yellow;
+    border-top: 16px solid transparent;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    top: -23px;
+    right: 0px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        top: 30%;
+        right: -68%;
+    }
+    to {
+        opacity: 1;
+        top: 64%;
+        right: 8%;
+    }
+}
+.sign-form--header i {
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+.sign-form--header div:nth-child(2) {
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    width: 200px;
+    overflow: hidden;
+}

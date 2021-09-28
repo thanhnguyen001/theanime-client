@@ -1,0 +1,26 @@
+.user-form--part {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 12px 8px;
+    color: var(--black-color);
+    opacity: 0.85;
+}
+.user-form--part:hover {
+    opacity: 1;
+}
+
+.user-form--icon {
+    margin-top: 2px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+.user-form--text {
+    cursor: pointer;
+}
+.user-form--memo {
+    font-size: 1.6rem;
+}
+.sign-form--body::-webkit-scrollbar{
+    width: 4px;
+}

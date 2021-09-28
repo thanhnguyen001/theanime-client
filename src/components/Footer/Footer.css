@@ -1,0 +1,12 @@
+.footer {
+    font-size: 1.8rem;
+    text-align: center;
+}
+.footer-wrap {
+    max-width: 1200px;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 16px auto;
+    border-top: 1px solid var(--text-color);
+    padding-top: 14px;
+}

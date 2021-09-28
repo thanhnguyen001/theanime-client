@@ -1,0 +1,56 @@
+.information {
+    margin-top: 24px;
+}
+.information-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #becabf;
+    border-radius: 10px;
+}
+.information-title {
+    font-size: 2.2rem;
+}
+.information-body {
+    margin-top: 12px;
+    font-size: 1.8rem;
+    position: relative;
+}
+.information-body label {
+    max-width: 200px;
+    display: inline-block;
+    min-width: 145px;
+}
+.information-body input {
+    height: 3.6rem;
+    padding-left: 12px;
+    margin-left: 12px;
+    width: 40%;
+    font-size: 1.6rem;
+}
+.information-error {
+    height: 2.4rem;
+    font-size: 1.6rem;
+    margin-left: 140px;
+    color: red;
+    padding: 4px 0;
+}
+.information-btn {
+    font-size: 2rem;
+    background-color: var(--green-color);
+    padding: 4px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.information-memo {
+    font-size: 1.8rem;
+    color: var(--green-color);
+    border: 1px solid var(--green-color);
+    margin-bottom: 12px;
+    padding: 4px;
+}
+.information-memo.error {
+    color: red;
+    border-color: red ;
+}

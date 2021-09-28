@@ -1,0 +1,78 @@
+.user-anime {
+    margin-top: 24px;
+}
+.table-title {
+    font-size: 2.6rem;
+    padding: 8px 0;
+}
+
+.table {
+    width: 100%;
+    font-size: 1.9rem;
+    /* padding-top: 16px; */
+    border-top: 1px solid var(--green-color);
+    border-left: 1px solid var(--green-color);
+    border-right: 1px solid var(--green-color);
+}
+.table-heading {
+    border-bottom: 2px solid var(--green-color);
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--green-color);
+}
+
+.anime-stt {
+    width: 5%;
+    text-align: center;
+}
+
+.anime-info {
+    flex: 1;
+}
+
+.anime-info--wrap {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+.anime-thumbnail {
+    width: 25%;
+    text-align: center;
+}
+
+.anime-name {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+    margin-left: 16px;
+    max-width: 400px;
+}
+
+.anime-img {
+    width: 100%;
+}
+
+.anime-time {
+    width: 30%;
+}
+
+.anime-delete {
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+}
+.anime-delete:hover {
+    color: rgb(243, 60, 60)
+}
+
+.anime-img img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 10px;
+}
