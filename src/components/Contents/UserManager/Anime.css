@@ -17,6 +17,13 @@
 .table-heading {
     border-bottom: 2px solid var(--green-color);
 }
+.table-head.anime-info {
+    text-align: start;
+    margin-left: 14px;
+}
+.table-head.anime-time {
+    text-align: start;
+}
 
 .table-row {
     display: flex;

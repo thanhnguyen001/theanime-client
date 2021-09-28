@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = process.env.NODE_ENV !== 'production'
-	? 'https://trusting-jeweled-straw.glitch.me/api/v1'
+	? 'http://localhost:8000/api/v1'
 	: 'https://trusting-jeweled-straw.glitch.me/api/v1'
 
 const axiosClient = axios.create({

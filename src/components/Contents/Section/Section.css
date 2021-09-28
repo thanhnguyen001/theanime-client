@@ -79,7 +79,7 @@
 .ta-thumbnail--img  {
     width: 100%;
     transition: transform 0.3s linear;
-    max-height: 178px;
+    max-height: 168px;
 }
 .ta-updating {
     position: absolute;

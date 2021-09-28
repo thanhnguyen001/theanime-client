@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axiosClient from '../../../api/axiosClient';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
@@ -69,8 +69,8 @@ function Slider() {
         const slideWrap = document.querySelector('.slider-wrap');
         setItemWidth(`${slideWrap.clientWidth}px`);
 
-       
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [windowHeight, windowWidth])
     const showSlider = (carousels) => {
         let result = [];
@@ -79,7 +79,7 @@ function Slider() {
                 <a href={`/${carousels[carousels.length - 1].slug}`} className="carousels-item--link" style={{ width: `${itemWidth}` }}>
                     <div className="carousels-item--bg" style={{ backgroundImage: `url(${carousels[carousels.length - 1].thumbnail})` }}></div>
                     <img src={carousels[carousels.length - 1].thumbnail} alt="img-anime" />
-                    <div className="carousels-item--name" style={{color: `${viewMode.textColor}`}}>
+                    <div className="carousels-item--name" style={{ color: `${viewMode.textColor}` }}>
                         {carousels[carousels.length - 1].name}
                     </div>
                     <div className="carousels-item--play">
@@ -93,7 +93,7 @@ function Slider() {
                     <a href={`/${item.slug}`} className="carousels-item--link" style={{ width: `${itemWidth}` }}>
                         <div className="carousels-item--bg" style={{ backgroundImage: `url(${item.thumbnail})` }}></div>
                         <img src={item.thumbnail} alt="img-anime" />
-                        <div className="carousels-item--name" style={{color: `${viewMode.textColor}`}}>
+                        <div className="carousels-item--name" style={{ color: `${viewMode.textColor}` }}>
                             {item.name}
                         </div>
                         <div className="carousels-item--play">
@@ -107,7 +107,7 @@ function Slider() {
                 <a href={`/${carousels[0].slug}`} className="carousels-item--link" style={{ width: `${itemWidth}` }}>
                     <div className="carousels-item--bg" style={{ backgroundImage: `url(${carousels[0].thumbnail})` }}></div>
                     <img src={carousels[0].thumbnail} alt="img-anime" />
-                    <div className="carousels-item--name" style={{color: `${viewMode.textColor}`}}>
+                    <div className="carousels-item--name" style={{ color: `${viewMode.textColor}` }}>
                         {carousels[0].name}
                     </div>
                     <div className="carousels-item--play">
@@ -125,20 +125,31 @@ function Slider() {
     }
 
     // Auto change slide
-
-    useEffect(() => {
-        const autoChangeSlide = window.setInterval(() => {
-            handleChangeSlide(1);
-        }, 6000);
-
-        return () => {
-            clearInterval(autoChangeSlide);
-        }
-    })
-
+    const isPause = useRef(null);
     let count = 1;
 
+    function resetAutoChangeSlide() {
+        if (isPause.current) {
+            clearTimeout(isPause.current);
+        }
+    }
+    useEffect(() => {
+        
+        resetAutoChangeSlide();
+        isPause.current = setTimeout(() => {
+            handleChangeSlide(1)
+        }, 3000);
+
+        return () => resetAutoChangeSlide();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+
     const handleChangeSlide = (num, jump) => {
+        resetAutoChangeSlide();
+
+        // console.info(count);
         const carouselsElement = document.querySelector('.carousels');
         const slideElements = document.querySelectorAll('.carousels-item');
         const dotsElements = document.querySelectorAll('.carousels-dots--item');
@@ -156,7 +167,7 @@ function Slider() {
                 count++;
                 return;
             }
-
+           
             carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count}px)`;
             carouselsElement.style.transition = 'transform 0.3s linear';
 
@@ -178,7 +189,10 @@ function Slider() {
                     }
                     else item.classList.remove('active');
                 })
-            })
+            });
+            isPause.current = setTimeout(() => {
+                handleChangeSlide(1)
+            }, 3000);
         }
     }
 
@@ -195,10 +209,10 @@ function Slider() {
                     {showSlider(carousels)}
                 </ul> : <SkeletonSlider theme="light" />}
 
-                <div className="slide-btn btn-prev" onClick={() => handleChangeSlide(-1)}>
+                <div className="slide-btn btn-prev" style={{ color: `${viewMode.textColor}` }} onClick={() => handleChangeSlide(-1)}>
                     <i className="fas fa-chevron-left "></i>
                 </div>
-                <div className="slide-btn btn-next" onClick={() => handleChangeSlide(1)}>
+                <div className="slide-btn btn-next" style={{ color: `${viewMode.textColor}` }} onClick={() => handleChangeSlide(1)}>
                     <i className="fas fa-chevron-right"></i>
                 </div>
                 <ul className="carousels-dots">

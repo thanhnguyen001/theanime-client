@@ -69,7 +69,7 @@ function Header() {
         else {
             setColorMode("var(--bg-header-dark)");
             setTextColor("var(--text-color)");
-            setSearchFormColor("rgba(0,0,0, 0.5)");
+            setSearchFormColor("rgba(0,0,0, 0.8)");
             // setTransparentColor("rgba(255,255,255, 1)");
 
             const payload = {
@@ -288,7 +288,7 @@ function Header() {
                         </div>
 
                         <div className="sidebar" style={{ maxHeight: `${windowHeight}px`, overflow: 'auto' }}>
-                            <div className="sidebar-menu" style={{ maxHeight: `${windowHeight - 412}px`, overflow: 'auto' }}>
+                            <div className="sidebar-menu" style={{ maxHeight: `${windowHeight - 250}px`, overflow: 'auto' }}>
                                 <div className="sidebar-menu--item" style={{ color: `${textColor}` }}>
                                     <i className="fas fa-film"></i>
                                     <div className="sidebar-item--text sidebar-all">Anime</div>
@@ -302,7 +302,11 @@ function Header() {
                                 </ul>
                                 <div className="sidebar-menu--item" style={{ color: `${textColor}` }}>
                                     <i className="fab fa-hackerrank"></i>
-                                    <Link to="/bang-xep-hang/ngay" onClick={() => handleToggleSidebar(false)} className="sidebar-item--text sidebar-rank">BXH</Link>
+                                    <Link to="/bang-xep-hang/ngay"
+                                        style={{ color: `${textColor}` }}
+                                        onClick={() => handleToggleSidebar(false)}
+                                        className="sidebar-item--text sidebar-rank">BXH
+                                    </Link>
                                 </div>
                             </div>
                         </div>

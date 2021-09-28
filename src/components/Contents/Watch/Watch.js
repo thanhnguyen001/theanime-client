@@ -469,7 +469,7 @@ function Watch({ animeSlug, episode, history }) {
                 </div>}
 
                 {mode === 4 && <div className="comment-input">
-                    <input type="text" />
+                    <input type="text" placeholder="Nhập bình luận ở đây"/>
                 </div>}
 
                 {mode !== 3 && <div className="episodes-list comment-list">
