@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import './Recently.css';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import { Link } from 'react-router-dom';
 
 const Recently = props => {
     let count = 0;
 
-    let recentlyList = JSON.parse(localStorage.getItem('user'))?.recently || [];
+    let recentlyList = JSON.parse(localStorage.getItem('watch'))?.viewed || [];
 
-    const { width: windowWidth, height: windowHeight } = useWindowDimensions();
+    const { width: windowWidth } = useWindowDimensions();
 
     const [widthItem, setWidthItem] = useState(null);
     useEffect(() => {
@@ -33,6 +34,7 @@ const Recently = props => {
     }, [windowWidth]);
 
     const handleChangeSlide = (num) => {
+        if (recentlyList.length === 1) return;
         const sliderElement = document.querySelector('.ta-slider-carousels');
         const slideItemElements = document.querySelectorAll('.ta-slider-item');
         const nextBtnElement = document.querySelector('.ta-btn-next');
@@ -61,18 +63,18 @@ const Recently = props => {
     const showSlider = (recentlyList) => {
         return recentlyList.map((item, index) => {
             return <li className="ta-slider-item" key={index} style={{ width: `${widthItem}px` }}>
-                <a href="#" className="ta-slider-item--link">
+                <Link to={item.link} className="ta-slider-item--link">
                     <div className="ta-slider-item--name">
-                        <div className="slider-item--name">Naruto</div>
-                        <div className="slider-item--episode">Tập 1: Uzumaki Naruto</div>
+                        <div className="slider-item--name">{item.film_name}</div>
+                        <div className="slider-item--episode">{item.full_name}</div>
                     </div>
                     <div className="ta-slider-item--img">
-                        <img src={item} alt="img" style={{ width: `${widthItem - 6}px` }} className="ta-slider-item--img-inner" />
+                        <img src={item.thumbnail_small} alt="img" style={{ width: `${widthItem - 6}px` }} className="ta-slider-item--img-inner" />
                     </div>
                     <div className="ta-slider-item--play">
                         <i className="fas fa-play-circle"></i>
                     </div>
-                </a>
+                </Link>
             </li>
         })
     }

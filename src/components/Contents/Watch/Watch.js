@@ -319,6 +319,10 @@ function Watch({ animeSlug, episode, history }) {
         const inputEnterCm = e.target;
         inputEnterCm.addEventListener('keypress', (e) => {
             if (e.keyCode === 13 && inputEnterCm.value !== '') {
+                if (!user.username) {
+                    alert("Bạn cần đăng nhâp để bình luận");
+                    return;
+                }
                 // console.info(inputEnterCm.value);
                 const newList = JSON.parse(localStorage.getItem('comment'));
                 postComment(currentAnime?.id, inputEnterCm.value, newList);

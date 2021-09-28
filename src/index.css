@@ -254,6 +254,9 @@ i {
 		font-size: 1.4rem;
 		padding: 3px;
 	}
+	.ta-anime .ta-thumbnail--img {
+		max-height: 99px;
+	}
 }
 
 :root {

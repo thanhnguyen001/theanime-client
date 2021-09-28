@@ -67,6 +67,11 @@ const SignForm = (props) => {
             axiosClient.post('/user/login', JSON.stringify(data))
                 .then(res => {
                     console.info(res)
+
+                    if (!res.success) {
+                        setIsLoginFail(true);
+                        return;
+                    }
                     let payload = {
                         username: res.user.username,
                         email: res.user.email,
@@ -85,10 +90,12 @@ const SignForm = (props) => {
                     dispatch(signedIn(payload));
 
                     window.location.reload(false);
+
+
                 })
                 .catch(errors => {
                     console.info(errors.message);
-                    setIsLoginFail(true);
+                    // setIsLoginFail(true);
                 })
         }
 
@@ -106,7 +113,7 @@ const SignForm = (props) => {
             </div>
 
             {isLoginFail && <div className="sign-form-fail error">Tên đăng nhập hoặc mật khẩu không chính xác!</div>
-}
+            }
             <div className="sign-form--body" style={{ maxHeight: `${height - 200}px`, overflow: 'auto' }}>
                 <div style={{ color: `${textColor}` }} className={`sign-form--group ${errors.username ? "error" : ''}`} >
                     <label htmlFor="username">Tên đăng nhập</label>

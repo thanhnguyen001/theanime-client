@@ -76,3 +76,12 @@
     max-width: 180px;
     border-radius: 10px;
 }
+.nothing {
+    text-align: center;
+}
+
+@media (max-width: 724px) {
+    .anime-stt {
+        display: none;
+    }
+}

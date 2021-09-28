@@ -63,7 +63,7 @@ function Anime(props) {
                 <tbody className="table-body">
 
                     {list.length > 0 && showAnime(list)}
-
+                    {list.length === 0 && <div className="nothing">Chưa có phim nào @@</div>}
                 </tbody>
             </table>
         </div>
