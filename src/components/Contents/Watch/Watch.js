@@ -62,7 +62,7 @@ function Watch({ animeSlug, episode, history }) {
                         if (episode) {
                             // Set Video
                             const epis = Number.parseInt(episode.split('-')[1]);
-                            console.info(epis)
+                            // console.info(epis)
                             if (isNaN(epis)) {
                                 getVideo(data.id, 0);
                                 return;
