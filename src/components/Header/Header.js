@@ -179,8 +179,8 @@ function Header() {
     };
 
     const showGenres = (genres) => {
-        return genres.map((item, index) => <li className="genres-item" key={index}>
-            <Link className="genres-item-link" style={{ color: `${textColor}` }}
+        return genres.map((item, index) => <li key={index} className="genres-item" >
+            <Link key={index} className="genres-item-link" style={{ color: `${textColor}` }}
                 onClick={() => handleToggleSidebar(false)}
                 to={`/anime/${item.slug}/trang-1`} >{item.genre}
             </Link>

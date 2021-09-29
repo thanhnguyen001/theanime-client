@@ -23,14 +23,9 @@ function Recommended() {
 
         fetchUpdatingList();
 
-        const autoFetch = setInterval(() => {
-            if (!isLoaded) fetchUpdatingList();
-        }, 3000);
-
-        if (isLoaded) clearInterval(autoFetch);
-
         return () => {
-            clearInterval(autoFetch);
+          
+            fetchUpdatingList();
         }
     }, [isLoaded])
 
