@@ -44,18 +44,6 @@ function Slider() {
         }
         fetchSliders();
 
-        const autoFetch = setInterval(() => {
-            if (!isLoaded) fetchSliders();
-        }, 3000);
-        if (isLoaded) {
-            clearInterval(autoFetch)
-            return;
-        }
-
-        return () => {
-            clearInterval(autoFetch);
-        }
-
     }, [isLoaded]);
 
     useEffect(() => {
