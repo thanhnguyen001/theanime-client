@@ -48,35 +48,41 @@ function Watch({ animeSlug, episode, history }) {
     useEffect(() => {
         const fetchAnime = async () => {
             try {
-                const { data } = await axiosClient.get(`/${animeSlug}`);
+                const { data, success } = await axiosClient.get(`/${animeSlug}`);
                 // console.info(data)
                 if (data) {
                     setIsLoaded(true);
                     setCurrentAnime(data);
 
                     if (data.episodes.length > 0) {
+                        console.info(data.episodes)
+                        if (data.time.includes('phút')) {
+                            getVideo(data.id, 0);
+                            return;
+                        }
                         if (episode) {
                             // Set Video
                             const epis = Number.parseInt(episode.split('-')[1]);
+                            console.info(epis)
                             if (isNaN(epis)) {
                                 getVideo(data.id, 0);
                                 return;
                             }
-                            const videoSortName = data.episodes.find(item => item.name === epis).name;
-                            if (videoSortName) {
-                                getVideo(data.id, videoSortName - 1, videoSortName - 1)
+                            else if (!isNaN(epis)) {
+                                const videoSortName = data.episodes.find(item => item.name === epis).name;
+                                if (videoSortName) {
+                                    getVideo(data.id, videoSortName - 1, videoSortName - 1)
+                                }
                             }
                             else getVideo(data.id, 0);
-                        }
-                        else {
-                            getVideo(data.id, 0);
                         }
                     }
                     else setIsComing(true);
                 }
+                else if (!success) history.push('/not-found')
+
             } catch (error) {
                 console.info(error);
-                history.push('/not-found')
             }
         };
         fetchAnime();
@@ -87,7 +93,7 @@ function Watch({ animeSlug, episode, history }) {
         const vid = await axiosClient.get(`/watch/${animeId}/episodes/${videoId}`);
         if (vid) {
             if (vid.data.sources) setVideo(vid.data.sources);
-            // console.info(vid.data.sources);
+            console.info(vid.data.sources);
             setCurrentEpisode(currentEpisode);
 
             dispatch(addViewed({ ...vid.data, animeId, isAdd: true }))

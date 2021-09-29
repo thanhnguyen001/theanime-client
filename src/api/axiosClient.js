@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const BASE_URL = process.env.NODE_ENV !== 'production'
-	? 'http://localhost:8000/api/v1'
-	: 'https://trusting-jeweled-straw.glitch.me/api/v1'
-
+	? 'https://protected-plateau-86798.herokuapp.com/api/v1'
+	// : 'https://trusting-jeweled-straw.glitch.me/api/v1'
+	: 'https://protected-plateau-86798.herokuapp.com/api/v1'
 const axiosClient = axios.create({
 	baseURL: BASE_URL,
 	// timeout: 1000,

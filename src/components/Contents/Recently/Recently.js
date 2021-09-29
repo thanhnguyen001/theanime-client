@@ -34,16 +34,16 @@ const Recently = props => {
     }, [windowWidth]);
 
     const handleChangeSlide = (num) => {
-        if (recentlyList.length === 1) return;
+        if (recentlyList.length < 5) return;
         const sliderElement = document.querySelector('.ta-slider-carousels');
         const slideItemElements = document.querySelectorAll('.ta-slider-item');
         const nextBtnElement = document.querySelector('.ta-btn-next');
         const prevBtnElement = document.querySelector('.ta-btn-prev');
        
         if (sliderElement && slideItemElements) {
-            if (num) count += num;
+            if (num > 0) count += num;
             else count -= num;
-
+            console.info(count)
             if (count < 0) count = 0;
             if (count > slideItemElements.length - 4) count = slideItemElements.length - 4;
 
