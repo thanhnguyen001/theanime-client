@@ -92,7 +92,6 @@ function Watch({ animeSlug, episode, history }) {
         const vid = await axiosClient.get(`/watch/${animeId}/episodes/${videoId}`);
         if (vid) {
             if (vid.data.sources) setVideo(vid.data.sources);
-            console.info(vid.data.sources);
             setCurrentEpisode(currentEpisode);
 
             dispatch(addViewed({ ...vid.data, animeId, isAdd: true }))
