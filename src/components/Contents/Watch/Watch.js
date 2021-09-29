@@ -55,7 +55,6 @@ function Watch({ animeSlug, episode, history }) {
                     setCurrentAnime(data);
 
                     if (data.episodes.length > 0) {
-                        console.info(data.episodes)
                         if (data.time.includes('phút')) {
                             getVideo(data.id, 0);
                             return;
