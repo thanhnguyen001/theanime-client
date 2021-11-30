@@ -23,10 +23,13 @@ function Recommended() {
 
         fetchUpdatingList();
 
+<<<<<<< HEAD
         return () => {
           
             fetchUpdatingList();
         }
+=======
+>>>>>>> a4905197cb9becbda40f130f8d3b53b2ef55145e
     }, [isLoaded])
 
     const showUpdatingList = (updateList) => {
