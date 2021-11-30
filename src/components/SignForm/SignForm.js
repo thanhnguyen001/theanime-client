@@ -19,6 +19,7 @@ const SignForm = (props) => {
     } });
 
     const { height } = useWindowDimensions();
+    
     const [isLoginFail, setIsLoginFail] = useState(false);
 
     // useState
