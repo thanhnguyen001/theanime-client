@@ -14,6 +14,7 @@ import Loading from '../Loading/Loading';
 import SignForm from '../SignForm/SignForm';
 import UserForm from '../UserForm/UserForm';
 import './Header.css';
+import logo from "../../static/img/logoT.png";
 
 function Header() {
     const history = useHistory();
@@ -251,7 +252,7 @@ function Header() {
                 <div className="header-logo">
                     <a href="/" >
                         <div className="header-logo--img">
-                            <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/240974874_2444502772359907_3560838083461082269_n.png?_nc_cat=106&ccb=1-5&_nc_sid=ae9488&_nc_ohc=6cv0d4H7FgIAX9Me_f9&_nc_oc=AQl0O-ugMVXT_UXXwTK5TsDE-mFdTXq2imOJgtp3W9QGVtYdxzxHo0ApUp6GBn0kbdw&tn=L82J63e4MRFcMsEH&_nc_ht=scontent.fhan14-2.fna&oh=5539b727798d2c04afab592a7246ea2c&oe=61663E68" alt="TheAnime" />
+                            <img src={logo} alt="TheAnime" />
                         </div>
                     </a>
                 </div>

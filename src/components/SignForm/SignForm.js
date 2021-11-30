@@ -13,7 +13,10 @@ const SignForm = (props) => {
 
     const dispatch = useDispatch();
 
-    const { register, handleSubmit, formState: { errors }, watch } = useForm({ mode: 'all' });
+    const { register, handleSubmit, formState: { errors }, watch } = useForm({ mode: 'all', defaultValues: {
+        username: "megazord003",
+        password: "123456"
+    } });
 
     const { height } = useWindowDimensions();
     const [isLoginFail, setIsLoginFail] = useState(false);

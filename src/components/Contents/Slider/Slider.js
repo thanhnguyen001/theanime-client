@@ -117,7 +117,14 @@ function Slider() {
     }
 
     // Auto change slide
-    const isPause = useRef(null);
+    const [isFirstChange, setFirst] = useState(true);
+
+    const isPause = useRef(setTimeout(() => {
+        if (isFirstChange) {
+            setFirst(false);
+            handleChangeSlide(1)
+        }
+    }, 3000));
     const count = useRef(1);
 
     function resetAutoChangeSlide() {
@@ -126,21 +133,24 @@ function Slider() {
         }
     }
     useEffect(() => {
-        
+
         resetAutoChangeSlide();
         isPause.current = setTimeout(() => {
             handleChangeSlide(1)
         }, 3000);
 
-        return () => resetAutoChangeSlide();
+        return () => {
+            resetAutoChangeSlide();
+            clearTimeout(isPause.current)
+        }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
     const handleChangeSlide = (num, jump) => {
         resetAutoChangeSlide();
-
+        setFirst(false);
         // console.info(count);
         const carouselsElement = document.querySelector('.carousels');
         const slideElements = document.querySelectorAll('.carousels-item');
@@ -159,7 +169,7 @@ function Slider() {
                 count.current++;
                 return;
             }
-           
+
             carouselsElement.style.transform = `translateX(${-slideElements[0].clientWidth * count.current}px)`;
             carouselsElement.style.transition = 'transform 0.3s linear';
 
