@@ -43,7 +43,6 @@ function Slider() {
             }
         }
         fetchSliders();
-
     }, [isLoaded]);
 
     useEffect(() => {
@@ -56,7 +55,6 @@ function Slider() {
 
         const slideWrap = document.querySelector('.slider-wrap');
         setItemWidth(`${slideWrap.clientWidth}px`);
-
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [windowHeight, windowWidth])
