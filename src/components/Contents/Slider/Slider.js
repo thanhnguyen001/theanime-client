@@ -44,13 +44,6 @@ function Slider() {
         }
         fetchSliders();
 
-<<<<<<< HEAD
-        return () => {
-            fetchSliders();
-        }
-
-=======
->>>>>>> a4905197cb9becbda40f130f8d3b53b2ef55145e
     }, [isLoaded]);
 
     useEffect(() => {
